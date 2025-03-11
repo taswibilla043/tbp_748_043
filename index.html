@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8; /* Light grey background */
+        }
+
+        header {
+            background: linear-gradient(135deg, #008080, #20b2aa); /* Gradient background with teal colors */
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+            background: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+            border-radius: 25px; /* Rounded corners */
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.7em 1.5em;
+            display: inline-block;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #006666; /* Darker teal color */
+            transform: scale(1.05); /* Slight scaling effect */
+        }
+
+        main {
+            padding: 2em;
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+
+        main p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        main ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #008080, #20b2aa); /* Gradient background with teal colors */
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            margin-top: 20px; /* Ensure there's a margin between the content and the footer */
+        }
+
+        .active {
+            display: block;
+        }
+
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        #lottie-container {
+            width: 100%;
+            height: 400px;
+            margin: 2em 0;
+            float: right; /* Align the animation to the right */
+        }
+
+        #content-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #text-content {
+            flex: 1;
+        }
+
+        /* Remove the scrollbar styling */
+        /* If you had previous scrollbar styling, remove it to ensure no extra space is used */
+        .scrollable-container {
+            height: 600px; /* Adjust height as needed */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        /* New CSS class for small font */
+        .small-font {
+            font-size: 0.9em; /* Adjust size as needed */
+        }
+
+        .back-button {
+            background-color: #006666;
+            color: white;
+            border: none;
+            padding: 0.7em 1.5em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            margin-top: 1em;
+        }
+
+        .back-button:hover {
+            background-color: #004c4c;
+            transform: scale(1.05);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Health Insurance Price Prediction</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('predictor')">Predictor</a></li>
+                <li><a href="#" onclick="showSection('benefits')">Benefits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home" class="active">
+        <div id="content-container">
+            <div id="text-content">
+                <h2>Welcome to Our Health Insurance Premium Prediction Tool</h2>
+                <p>Explore our tool to understand how different factors influence health insurance premiums and make informed decisions.</p>
+            </div>
+            <div id="lottie-container"></div>
+        </div>
+        <footer>
+            <p>&copy; 2024 Health Insurance Price Prediction Project</p>
+        </footer>
+    </main>
+
+    <main id="predictor">
+        <h2>Predict Your Health Insurance Premium</h2>
+        <p class="small-font">Use this tool to enter your details and predict your health insurance premium. We use advanced algorithms to provide accurate estimates based on your inputs.</p>
+        <!-- Ensure the content fits within the available space -->
+        <div class="iframe-container">
+            <iframe src="http://localhost:8501" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        <button class="back-button" onclick="showSection('home')">Back to Enter Details</button>
+    </main>
+
+    <main id="benefits">
+        <h2>Benefits of Using Our Prediction Tool</h2>
+        <ul>
+            <li>Accurate Estimates: Get precise predictions based on various factors.</li>
+            <li>Informed Decisions: Understand how different factors affect your premiums.</li>
+            <li>Cost Savings: Plan better and potentially save on insurance costs.</li>
+        </ul>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('main').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Load Lottie animation
+        document.addEventListener("DOMContentLoaded", function() {
+            var animation = lottie.loadAnimation({
+                container: document.getElementById('lottie-container'), // The container where the animation will be rendered
+                renderer: 'svg', // Render as SVG
+                loop: true, // Loop the animation
+                autoplay: true, // Start playing immediately
+                path: 'https://lottie.host/39998654-8679-4adc-b317-79eab5b9dbbd/cOPHCBxrsf.json' // Path to your Optimized Lottie JSON file
+            });
+        });
+    </script>
+</body>
+</html>
